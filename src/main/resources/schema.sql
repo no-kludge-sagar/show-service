@@ -1,0 +1,43 @@
+CREATE TABLE IF NOT EXISTS movie (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    created_by VARCHAR(100),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_by VARCHAR(100),
+    updated_at TIMESTAMP DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS town (
+    id INT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    created_by VARCHAR(100),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_by VARCHAR(100),
+    updated_at TIMESTAMP DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS theatre (
+    id INT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    town_id INT,
+    created_by VARCHAR(100),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_by VARCHAR(100),
+    updated_at TIMESTAMP DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (town_id) REFERENCES town(id)
+);
+
+CREATE TABLE IF NOT EXISTS show (
+    id INT PRIMARY KEY,
+    movie_id INT,
+    theatre_id INT,
+    date DATE NOT NULL,
+    time TIME NOT NULL,
+    created_by VARCHAR(100),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_by VARCHAR(100),
+    updated_at TIMESTAMP DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (movie_id) REFERENCES movie(id),
+    FOREIGN KEY (theatre_id) REFERENCES theatre(id)
+);
+
