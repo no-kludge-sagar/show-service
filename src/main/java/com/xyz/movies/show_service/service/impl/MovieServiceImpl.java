@@ -6,7 +6,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import com.xyz.movies.show_service.dto.MovieDTO;
-import com.xyz.movies.show_service.entity.MovieRepository;
+import com.xyz.movies.show_service.entity.repository.MovieRepository;
 import com.xyz.movies.show_service.service.MovieService;
 
 import lombok.AllArgsConstructor;
