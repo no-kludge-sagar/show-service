@@ -3,7 +3,6 @@ package com.xyz.movies.show_service.entity;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,6 +10,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -18,6 +18,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
+@NoArgsConstructor
 public class Show extends BaseEntity {
     
     @Id
@@ -35,5 +36,12 @@ public class Show extends BaseEntity {
     private LocalDate date;
     
     private LocalTime time;
+    
+	public Show(Movie movie, Theatre theatre, LocalDate date, LocalTime time) {
+        this.movie = movie;
+        this.theatre = theatre;
+        this.date = date;
+        this.time = time;
+	}
 }
 

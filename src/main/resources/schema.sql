@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS theatre (
 );
 
 CREATE TABLE IF NOT EXISTS show (
-    id INT PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     movie_id INT,
     theatre_id INT,
     date DATE NOT NULL,
@@ -38,6 +38,7 @@ CREATE TABLE IF NOT EXISTS show (
     updated_by VARCHAR(100),
     updated_at TIMESTAMP DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (movie_id) REFERENCES movie(id),
-    FOREIGN KEY (theatre_id) REFERENCES theatre(id)
+    FOREIGN KEY (theatre_id) REFERENCES theatre(id),
+    CONSTRAINT unique_show UNIQUE (movie_id, theatre_id, date, time)
 );
 

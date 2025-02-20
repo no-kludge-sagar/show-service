@@ -4,13 +4,13 @@ INSERT INTO movie (id, title) VALUES
 (3, 'Interstellar'),
 (4, 'The Dark Knight');
 
-UPDATE movie SET created_by = 'SAGAR';
+UPDATE movie SET created_by = 'Sagar';
 
 INSERT INTO town (id, name) VALUES 
 (1, 'Springfield'),
 (2, 'Karur');
 
-UPDATE town SET created_by = 'SAGAR';
+UPDATE town SET created_by = 'Sagar';
 
 INSERT INTO theatre (id, name, town_id) VALUES 
 (1, 'Grand Cinema', 1),
@@ -23,7 +23,7 @@ INSERT INTO theatre (id, name, town_id) VALUES
 (8, 'Kalaiyarangam', 2),
 (9, 'Kavithalaya', 2);
 
-UPDATE theatre SET created_by = 'SAGAR';
+UPDATE theatre SET created_by = 'Sagar';
 
 INSERT INTO show (id, movie_id, theatre_id, date, time) VALUES 
 (1, 1, 1, '2025-02-20', '18:30:00'),
@@ -31,4 +31,6 @@ INSERT INTO show (id, movie_id, theatre_id, date, time) VALUES
 (3, 3, 3, '2025-02-22', '16:00:00'),
 (4, 4, 4, '2025-02-23', '19:45:00');
 
-UPDATE show SET created_by = 'SAGAR';
+ALTER TABLE show ALTER COLUMN id RESTART WITH 5;
+
+UPDATE show SET created_by = 'Sagar';
