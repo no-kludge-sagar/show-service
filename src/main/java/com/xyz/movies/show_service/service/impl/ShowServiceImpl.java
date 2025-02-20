@@ -30,5 +30,14 @@ public class ShowServiceImpl implements ShowService {
 		throw new ResourceNotFoundException("Show");
 	}
 
+	@Override
+	public boolean deleteShow(Long showId) {
+		if (showRepository.existsById(showId)) {
+            showRepository.deleteById(showId);
+            return true;
+		}
+		return false;
+	}
+
 
 }
