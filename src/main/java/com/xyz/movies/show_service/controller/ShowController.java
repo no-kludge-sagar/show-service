@@ -27,8 +27,8 @@ public class ShowController {
 	}
 	
 	@DeleteMapping
-	public boolean deleteShow(@RequestParam Long showId) {
-		return showService.deleteShow(showId);
+	public void deleteShow(@RequestParam Long showId) {
+		showService.deleteShow(showId);
 	}
 
 }

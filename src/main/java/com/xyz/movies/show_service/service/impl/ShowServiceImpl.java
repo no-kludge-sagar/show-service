@@ -31,12 +31,12 @@ public class ShowServiceImpl implements ShowService {
 	}
 
 	@Override
-	public boolean deleteShow(Long showId) {
+	public void deleteShow(Long showId) {
 		if (showRepository.existsById(showId)) {
             showRepository.deleteById(showId);
-            return true;
+		} else {
+			throw new ResourceNotFoundException("Show");
 		}
-		return false;
 	}
 
 
